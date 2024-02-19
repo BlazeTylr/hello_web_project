@@ -54,6 +54,16 @@ def sort_names():
 
     return ','.join(sorted_names)
 
+@app.route('/add_name', methods=['GET'])
+def add_name():
+    base_names = 'John, Ben'
+    name = request.args['name']
+    if name == '':
+        return base_names
+    base_names += f", {name}"
+    return base_names
+
+
 from example_routes import apply_example_routes
 apply_example_routes(app)
 
